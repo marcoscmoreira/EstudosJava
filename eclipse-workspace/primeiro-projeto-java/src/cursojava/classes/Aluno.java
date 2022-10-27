@@ -1,5 +1,7 @@
 package cursojava.classes;
 
+import java.util.Objects;
+
 public class Aluno {
 
 	/* Atributos do aluno */
@@ -150,11 +152,43 @@ public class Aluno {
 		this.nota4 = nota4;
 	}
 	
+	
+	/* Métodos toString */
+	@Override
+	public String toString() {
+		return "Aluno [nome=" + nome + ", idade=" + idade + ", dataNascimento=" + dataNascimento + ", registroGeral="
+				+ registroGeral + ", numeroCps=" + numeroCps + ", nomeMae=" + nomeMae + ", nomePai=" + nomePai
+				+ ", dataMatricula=" + dataMatricula + ", nomeEscola=" + nomeEscola + ", serieMatriculado="
+				+ serieMatriculado + ", nota1=" + nota1 + ", nota2=" + nota2 + ", nota3=" + nota3 + ", nota4=" + nota4
+				+ "]";
+	}
+	
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nome);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aluno other = (Aluno) obj;
+		return Objects.equals(nome, other.nome);
+	}
+
 	/*Método que retorna a média do aluno*/
 	public double getMediaNota () {
 		return (nota1 + nota2 + nota3 + nota4) / 4;
 	}
 	
+	/*Métodos que retorna true ou false para validar 
+	  a média do aluno */
 	public boolean getAlunoAprovado() {
 		 double media = this.getMediaNota(); /*O this usa o método que está dentro da classe*/
 		 if (media >= 70) {

@@ -1,5 +1,7 @@
 package cursojava.executavel;
 
+import javax.swing.JOptionPane;
+
 import cursojava.classes.Aluno;
 
 public class PrimeriaClasseJava {
@@ -9,10 +11,15 @@ public class PrimeriaClasseJava {
 
 		
 		/*new Aluno() é uma instancia (Criação de objeto)*/
+		String nome = JOptionPane.showInputDialog("Qual o nome do aluno: ");
+		String idade = JOptionPane.showInputDialog("Qual a idade: ");
+		String dataNascimento = JOptionPane.showInputDialog("Data de Nascimento: ");
+		
+		
 		Aluno aluno1 = new Aluno();
-		aluno1.setNome("João");
-		aluno1.setIdade(50);
-		aluno1.setDataNascimento("21/09/1994");
+		aluno1.setNome(nome);
+		aluno1.setIdade(Integer.valueOf(idade)); /*O integer faz o papel de conversão da string que ele recebe*/
+		aluno1.setDataNascimento(dataNascimento);
 		aluno1.setRegistroGeral("654654646465");
 		aluno1.setNumeroCps("551515");
 		aluno1.setNomeMae("Nome da mãe");
@@ -31,13 +38,6 @@ public class PrimeriaClasseJava {
 		System.out.println("Média da nota é: " + aluno1.getMediaNota());
 		System.out.println("Resultado = " + (aluno1.getAlunoAprovado() ? "Aprovado" : "Reprovado")); /*Operador ternario de condição IF*/
 		
-		Aluno aluno2 = new Aluno();
-		
-		Aluno aluno3 = new Aluno();
-		
-		Aluno aluno4 = new Aluno("Maria");
-		
-		Aluno aluno5 = new Aluno("Jose", 50);
 		
 	}
 	
