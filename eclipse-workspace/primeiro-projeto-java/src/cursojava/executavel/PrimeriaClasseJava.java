@@ -19,13 +19,13 @@ public class PrimeriaClasseJava {
 		aluno.setNome(nome);
 		aluno.setIdade(Integer.valueOf(idade)); /* O integer faz o papel de conversão da string que ele recebe */
 		aluno.setDataNascimento(dataNascimento);
-		aluno.setRegistroGeral("654654646465");
+		/*aluno.setRegistroGeral("654654646465");
 		aluno.setNumeroCps("551515");
 		aluno.setNomeMae("Nome da mãe");
 		aluno.setNomePai("Algun pai ai");
 		aluno.setDataMatricula("15/12/5165");
 		aluno.setSerieMatriculado("6");
-		aluno.setNomeEscola("Java Java");
+		aluno.setNomeEscola("Java Java");*/
 		
 		for (int pos = 1; pos <= 4; pos++ ) {
 			String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+pos+"?");
@@ -37,6 +37,13 @@ public class PrimeriaClasseJava {
 			
 			aluno.getDisciplinas().add(disciplina);
 			
+		}
+		
+		int escolha = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		
+		if (escolha == 0) {
+			String disciplinaRemover = JOptionPane.showInputDialog("Qual disciplina gostaria de remover? 1, 2, 3, 4")
+			aluno.getDisciplinas().remove(Integer.valueOf(disciplinaRemover).intValue() - 1);
 		}
 
 		System.out.println("Nome: " + aluno.getNome());
