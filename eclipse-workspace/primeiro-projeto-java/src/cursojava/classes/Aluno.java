@@ -17,17 +17,16 @@ public class Aluno {
 	private String dataMatricula;
 	private String nomeEscola;
 	private String serieMatriculado;
-	
+
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-	
+
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	
+
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
-	
 
 	/* Construtor */
 	public Aluno() { /* Cria dados na memória */
@@ -127,10 +126,7 @@ public class Aluno {
 
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
-	} 
-
-	
-	
+	}
 
 	@Override
 	public String toString() {
@@ -157,34 +153,34 @@ public class Aluno {
 		return Objects.equals(nome, other.nome);
 	}
 
-	/*Método que retorna a média do aluno*/
-	public double getMediaNota () {
-		
+	/* Método que retorna a média do aluno */
+	public double getMediaNota() {
+
 		double somaNotas = 0.0;
-		
-		
+
 		for (Disciplina disciplina : disciplinas) {
 			somaNotas += disciplina.getNota();
 		}
-		
+
 		return somaNotas / disciplinas.size();
 	}
-	
-	/*Métodos que retorna true ou false para validar 
-	  a média do aluno */
+
+	/*
+	 * Métodos que retorna true ou false para validar a média do aluno
+	 */
 	public boolean getAlunoAprovado() {
-		 double media = this.getMediaNota(); /*O this usa o método que está dentro da classe*/
-		 if (media >= 70) {
-			 return true;
-		 } else {
-			 return false;
-		 }
-		 
+		double media = this.getMediaNota(); /* O this usa o método que está dentro da classe */
+		if (media >= 70) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
-	
+
 	public String getAlunoAprovado2() {
 		double media = this.getMediaNota();
-		
+
 		if (media >= 50) {
 			if (media >= 70) {
 				return "Aluno está aprovado";
